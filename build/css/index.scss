@@ -1,0 +1,268 @@
+@font-face {
+	font-family: "helvitica";
+	src: url("../fonts/Helvetica.woff");
+}
+
+$font: "helvetica";
+
+body {
+	font-family: $font;
+	margin: 0;
+	max-width: 100vw;
+	max-height: 100vh;
+	overflow: hidden;
+}
+
+.cdw-links {
+	position: fixed;
+	z-index: 8;
+	top: 1rem;
+	left: 1rem;
+	display: flex;
+	align-items: center;
+	gap: 1rem;
+	margin: 1rem;
+
+	.cdw-link {
+		outline: none;
+		text-decoration: none;
+		color: rgba(150, 245, 255, 1);
+		opacity: 0.25;
+		font-size: 2rem;
+
+		transition: 0.5s ease;
+
+		&.is-active {
+			opacity: 1;
+
+			transition: 0.5s ease;
+		}
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.75);
+			opacity: 1;
+
+			transition: 0.5s ease;
+		}
+	}
+}
+
+.slideshow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background: url(../img/main.jpg) no-repeat center top;
+	background-size: cover;
+	overflow: hidden;
+
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
+		top: 0;
+		width: 100%;
+		height: 100%;
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.slide {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		padding: 35vh 0 0 0;
+		pointer-events: none;
+		line-height: 1;
+		font-family: "Roboto", sans-serif;
+
+		&--current {
+			pointer-events: auto;
+
+			.slide__element {
+				opacity: 1;
+				-webkit-transform: translate3d(0, 0, 0);
+				transform: translate3d(0, 0, 0);
+			}
+		}
+
+		.slide__element {
+			opacity: 0;
+			color: #252445;
+			-webkit-transform: translate3d(0, 50px, 0);
+			transform: translate3d(0, 50px, 0);
+			-webkit-transition:
+				-webkit-transform 0.3s,
+				opacity 0.3s;
+			transition:
+				transform 0.3s,
+				opacity 0.3s;
+		}
+	}
+}
+
+.vignette {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	max-width: 100vw;
+	max-height: 100vh;
+	opacity: 0;
+	pointer-events: none;
+	transition: 1s ease;
+
+	&.sunny {
+		mix-blend-mode: lighten;
+		opacity: 0;
+
+		&.is-active {
+			opacity: 1;
+			z-index: 1;
+			transition: 1s ease;
+		}
+	}
+
+	&.drizzle {
+		background: radial-gradient(
+			ellipse at center,
+			rgba(255, 255, 255, 0) 0%,
+			rgba(255, 255, 255, 0) 20%,
+			rgba(255, 255, 255, 0.7) 100%
+		);
+		opacity: 0;
+
+		&.is-active {
+			opacity: 0.25;
+			z-index: 1;
+			transition: 1s ease;
+		}
+	}
+
+	&.rain {
+		background: radial-gradient(
+			ellipse at center,
+			rgba(0, 0, 0, 0) 0%,
+			rgba(0, 0, 0, 0.5) 70%,
+			rgba(0, 0, 0, 0.9) 100%
+		);
+		opacity: 0;
+
+		&.is-active {
+			opacity: 1;
+			z-index: 1;
+			transition: 1s ease;
+		}
+	}
+}
+
+.large-text {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	z-index: 2;
+	width: 100vw;
+	height: 100vh;
+	pointer-events: none;
+	font-size: 15vw;
+	font-weight: 100;
+	font-family: $font;
+	background-image: url("../img/main.jpg");
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-transform: uppercase;
+	letter-spacing: 1rem;
+	mix-blend-mode: soft-light;
+}
+
+.slideshow__nav {
+	text-align: center;
+	width: 100%;
+	display: flex;
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-align-items: center;
+	align-items: center;
+	position: fixed;
+	bottom: 0;
+	right: 0;
+
+	.weather-item {
+		display: block;
+		padding: 1em;
+		font-size: 3rem;
+		color: #252445;
+		-webkit-transition: color 0.3s;
+		transition: color 0.3s;
+		text-decoration: none;
+		color: rgba(150, 245, 255, 1);
+		opacity: 0.5;
+		position: relative;
+		cursor: pointer !important;
+		pointer-events: all;
+
+		transition: 0.5s ease;
+
+		i {
+			position: absolute;
+			z-index: 9;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+		}
+
+		:nth-child(1) {
+			opacity: 1;
+
+			transition: 0.5s ease;
+		}
+
+		:nth-child(2) {
+			opacity: 0;
+
+			transition: 0.5s ease;
+		}
+
+		&--current {
+			opacity: 1;
+
+			transition: 0.5s ease;
+
+			:nth-child(1) {
+				opacity: 0;
+
+				transition: 0.5s ease;
+			}
+
+			:nth-child(2) {
+				opacity: 1;
+
+				transition: 0.5s ease;
+			}
+		}
+
+		&:hover {
+			color: rgba(255, 255, 255, 0.75);
+			opacity: 1;
+
+			transition: 0.5s ease;
+		}
+	}
+}
+
+@keyframes vignetteFadeIn {
+	to {
+		opacity: 1;
+	}
+}
