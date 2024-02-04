@@ -1,8 +1,15 @@
 # Charlotte Day Wilson
 
-## Rain & Water Effect Experiment
+## Prelaunch Rain & Water Effect Demo
 
-Some experimental rain and water drop effects in different scenarios using WebGL.
+Some experimental rain and water drop effects using WebGL.
+
+[!NOTE]
+This project is intended to highlight specific possibilities for webbuild. This has not been approved by artist or management.
+
+## Heroku App
+
+[https://light-perfect-sandpaper-c215ef3a925e.herokuapp.com/]
 
 ## Misc
 
