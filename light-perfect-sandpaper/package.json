@@ -1,0 +1,29 @@
+{
+  "name": "light-perfect-sandpaper",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.0.8"
+  },
+  "dependencies": {
+    "gsap": "^3.12.5"
+  },
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dylancameron/cdw.git"
+  },
+  "author": "Dylan Cameron (Beggar's Group)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dylancameron/cdw/issues"
+  },
+  "homepage": "https://github.com/dylancameron/cdw#readme",
+  "description": ""
+}
