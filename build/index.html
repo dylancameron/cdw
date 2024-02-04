@@ -49,11 +49,25 @@
 			</div>
 			<!-- Drizzle -->
 			<div class="slide" id="slide-2" data-weather="drizzle">
-				<div id="vignette-2" class="vignette drizzle"></div>
+				<div id="vignette-2" class="vignette drizzle">
+					<svg>
+						<filter id="tiles">
+							<feTile in="SourceGraphic" x="50" y="50" width="100vw" height="100vh" />
+							<feTile />
+						</filter>
+					</svg>
+				</div>
 			</div>
 			<!-- Heavy Rain -->
 			<div class="slide" id="slide-3" data-weather="rain">
-				<div id="vignette-3" class="vignette rain"></div>
+				<div id="vignette-3" class="vignette rain">
+					<svg>
+						<filter id="tiles">
+							<feTile in="SourceGraphic" x="50" y="50" width="100vw" height="100vh" />
+							<feTile />
+						</filter>
+					</svg>
+				</div>
 			</div>
 
 			<div class="large-text">
@@ -111,33 +125,6 @@
 			}
 		}
 	</script>
-	<!-- <script>
-		function showVignette(vignetteId) {
-			let allVignettes = document.querySelectorAll(".vignette")
-			let allWeatherButtons = document.querySelectorAll('.weather-item');
-			let currentWeather = document.querySelectorAll('.vignette.is-active');
-			let currentButton = document.querySelectorAll('.weather-item.is-active');
-			let selectedVignette = document.getElementById(vignetteId);
-			let selectedButton = document.querySelector(`[data-vignette-id="${vignetteId}"]`);
-
-			allVignettes.forEach(function (vignetteId) {
-				currentButton.classList.remove("is-active");
-				currentWeather.classList.remove('is-active');
-				selectedVignette.classList.add("is-active");
-				selectedButton.classList.add('is-active');
-			});
-
-			console.log(selectedVignette, vignetteId);
-		}
-	</script> -->
-
 </body>
 
 </html>
-
-<!-- <svg>
-	<filter id="tiles">
-		<feTile in="SourceGraphic" x="50" y="50" width="100vw" height="100vh" />
-		<feTile />
-	</filter>
-</svg> -->
